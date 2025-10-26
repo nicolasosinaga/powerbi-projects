@@ -1,0 +1,77 @@
+Medidas DAX:
+
+-Descuento_Promedio % = AVERAGE(Fact_Ventas[Descuento])
+
+-Ganancia_Promedio_Por_Producto = DIVIDE([Total_Ganancias],[Total_Productos],0)
+
+-Margen % = DIVIDE([Total_Ganancias],[Total_Ventas],0)
+
+-Nuevos_Clientes = 
+
+VAR FechaIni =
+    MIN(Dim_Calendario[Date])
+VAR FechaFin =
+    MAX(Dim_Calendario[Date])
+RETURN
+CALCULATE(
+    DISTINCTCOUNT('Dim_Clientes'[Cliente ID]),
+    KEEPFILTERS('Dim_Clientes'[Primera_Compra] >= FechaIni),
+    KEEPFILTERS('Dim_Clientes'[Primera_Compra] <= FechaFin)
+)
+
+-Ticket_Promedio = DIVIDE([Total_Ventas],[Total_Pedidos],0)
+
+-Tiempo_Promedio_Entrega (Días) = 
+AVERAGEX(
+    FILTER(
+        Fact_Ventas,
+        NOT ISBLANK(Fact_Ventas[Fecha_Compra]) &&
+        NOT ISBLANK(Fact_Ventas[Fecha_Envio])
+    ),
+    var Inicio = Fact_Ventas[Fecha_Compra]
+    var Fin = Fact_Ventas[Fecha_Envio]
+    var Dias = DATEDIFF(Inicio,Fin, DAY)
+    RETURN IF(Dias<0,BLANK(),Dias))
+
+-Total_Cantidad_Vendida = SUM(Fact_Ventas[Cantidad])
+
+-Total_Clientes = DISTINCTCOUNT(Fact_Ventas[Cliente ID])
+
+-Total_Ganancias = SUM(Fact_Ventas[Ganancias])
+
+-Total_Pedidos = DISTINCTCOUNT(Fact_Ventas[Pedido ID])
+
+-Total_Productos = DISTINCTCOUNT(Dim_Productos[Producto ID]) //productos diferentes
+
+-Total_Ventas = SUM(Fact_Ventas[Ventas])
+
+-Ventas_por_Clientes_Promedio = DIVIDE([Total_Ventas],[Total_Clientes],0)
+
+-Crecimiento_Ventas_YoY % = 
+var Anterior = [Ventas_Año_Anterior] 
+var Actual = [Total_Ventas] 
+RETURN DIVIDE(Actual-Anterior,Anterior,0)
+
+-Ganancias_Año_Anterior = 
+CALCULATE(
+    [Total_Ganancias],
+    SAMEPERIODLASTYEAR(Dim_Calendario[Date])
+)
+
+-Ganancias_YTD = 
+CALCULATE(
+    [Total_Ganancias],
+    DATESYTD(Dim_Calendario[Date])
+)
+
+-Ventas_Año_Anterior = 
+CALCULATE(
+    [Total_Ventas],
+    SAMEPERIODLASTYEAR(Dim_Calendario[Date])
+)
+
+-Ventas_YTD = 
+CALCULATE(
+    [Total_Ventas],
+    DATESYTD(Dim_Calendario[Date])
+)
