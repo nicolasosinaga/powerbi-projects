@@ -8,7 +8,7 @@ Cada proyecto combina **modelado de datos, DAX avanzado, storytelling con datos 
 
 ## 📂 Proyectos disponibles
 
-### 🔹 [Dashboard Ejecutivo de Ventas – Retail](./dashboard-ventas-retail)
+### 🔹 [Dashboard Ejecutivo de Ventas – Retail](https://github.com/nicolasosinaga/powerbi-projects/tree/main/proyecto-ventas)
 
 ---
 
