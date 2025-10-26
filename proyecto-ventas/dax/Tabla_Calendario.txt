@@ -1,0 +1,9 @@
+Tabla Calendario:
+
+Dim_Calendario = ADDCOLUMNS(
+    CALENDAR(DATE(2014,1,1),DATE(2018,12,1)),
+    "Año", YEAR([Date]),
+    "Mes", MONTH([Date]),
+    "Dia", DAY([Date]),
+    "Mes_Abreviado", FORMAT([Date],"mmm")
+)
