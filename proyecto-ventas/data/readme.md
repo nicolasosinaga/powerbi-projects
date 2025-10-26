@@ -1,5 +1,3 @@
-# 📁 Carpeta data/
-
 Esta carpeta contiene el dataset utilizado para construir el **Dashboard Ejecutivo de Ventas – Retail** en Power BI.
 
 ---
