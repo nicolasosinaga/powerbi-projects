@@ -19,9 +19,9 @@ Cada carpeta de proyecto contiene:
 | Carpeta / Archivo | Contenido |
 |--------------------|-----------|
 | `README.md` | Documentación detallada del proyecto |
-| `img/` | Capturas de pantalla del dashboard |
-| `pbix/` | Archivo del proyecto Power BI |
 | `data/` | Dataset usado (si es público o simulado) |
+| `dax/` | Medidas DAX usadas |
+| `img/` | Capturas de pantalla del dashboard |
 
 ---
 
