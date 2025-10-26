@@ -1,5 +1,7 @@
 ## 📊 Dataset
 
+Esta carpeta contiene el dataset utilizado para construir el **Dashboard Ejecutivo de Ventas** en Power BI.
+
 **Fuente:** [Kaggle – Superstore Dataset](https://www.kaggle.com/datasets/vivek468/superstore-dataset-final)
 
 **Archivo:** [superstore.csv](https://github.com/nicolasosinaga/powerbi-projects/blob/main/proyecto-ventas/data/Superstore.csv)
